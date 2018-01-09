@@ -8,7 +8,7 @@
 		<br/>
 		<br/>
 		
-		<!-- WYSIWYG editor -->
+		<!-- WYSIWYG editor 
 		<div id="toolbar">
 		  <a class="label label-primary" data-wysihtml5-command="bold">bold</a>
 		  <a class="label label-primary" data-wysihtml5-command="italic">italic</a>
@@ -20,13 +20,13 @@
 		</textarea>
 		<br/>
 		<input type="submit" class="btn btn-info" value="Submit"/>
-	</form>
+	</form>-->
 
-	<script>
-	  var editor = new wysihtml5.Editor('editor', {
-	    toolbar: 'toolbar',
-	    parserRules:  wysihtml5ParserRules
-	  });
-	</script>
+	<form action="{{ url_for('update_page') }}" method="POST">
+	  <textarea name="content" id="editor" data-placeholder="Go on, start editing..." >{{ content|safe }}</textarea>
+	  <br>
+	  <input type="submit" class="btn btn-info" value="Submit"/>
+	</form>
+ 
 
 {% endblock %}

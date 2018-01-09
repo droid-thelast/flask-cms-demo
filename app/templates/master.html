@@ -2,16 +2,38 @@
 <html>
 <head>
 	<title>{{ title }}</title>
-	<script src="{{  url_for('static', filename='js/wysihtml.toolbar.min.js') }}"></script>
-	<script src="{{  url_for('static', filename='js/wysihtml.adv_ext.js') }}"></script>
-	<link rel="stylesheet" type="text/css" href="http://designmodo.github.io/Flat-UI/dist/css/vendor/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="http://designmodo.github.io/Flat-UI/dist/css/flat-ui.min.css">
+	<!--<script src="{{  url_for('static', filename='js/wysihtml.toolbar.min.js') }}"></script>
+	<script src="{{  url_for('static', filename='js/wysihtml.adv_ext.js') }}"></script>-->
+	    <!-- Include external CSS. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+ 
+    <!-- Include Editor style. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{  url_for('static', filename='css/flat-ui.min.css') }}">
 	</style>
 </head>
 <body>
+	{% include "_nav.html" %}
 	<div class="container">
 		{% block content %}
 		{% endblock %}
 	</div>
+	<script src="{{  url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{  url_for('static', filename='js/flat-ui.min.js') }}"></script>
+	    <!-- Include external JS libs. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+ 
+    <!-- Include Editor JS files. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/js/froala_editor.pkgd.min.js"></script>
+    <script>
+	  $(function() {
+	    $('#editor').froalaEditor({toolbarInline: false})
+	  });
+	</script>
+ 
 </body>
 </html>
